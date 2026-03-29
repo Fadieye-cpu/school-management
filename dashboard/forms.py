@@ -15,11 +15,9 @@ class NoteForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        # On récupère le professeur passé depuis la vue
         professeur = kwargs.pop('professeur', None)
         super(NoteForm, self).__init__(*args, **kwargs)
         if professeur:
-            # On limite les choix aux cours donnés par ce prof précis
             self.fields['cours'].queryset = Cours.objects.filter(professeur=professeur)
 
 class AnnonceForm(forms.ModelForm):
@@ -39,5 +37,4 @@ class AnnonceForm(forms.ModelForm):
             # Le prof ne peut envoyer des annonces qu'aux classes qu'il enseigne
             classes_ids = Cours.objects.filter(professeur=professeur).values_list('classe', flat=True)
             self.fields['classe'].queryset = Classe.objects.filter(id__in=classes_ids)
-            # On ajoute une option vide pour "Toute l'école" si tu veux le permettre
             self.fields['classe'].empty_label = "Toute l'école (Général)"

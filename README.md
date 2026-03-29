@@ -32,7 +32,7 @@ Interface Professeur
 
 Interface Étudiant
 [Dashboard Étudiant](screenshots/Dashboard_etudiant.png)
-## 🛠️ Installation et Configuration
+
 
 ---
 

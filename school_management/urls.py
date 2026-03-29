@@ -27,13 +27,8 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
     path('', views.accueil, name='home'), # L'URL vide affiche l'accueil
     path('dashboard-redirect/', views.redirect_after_login, name='dashboard_redirect'),
-    
-    # On inclura plus tard les autres apps
-    # path('dashboard/', include('dashboard.urls')),
-    # path('school/', include('school.urls')),
 ]
 
-# Indispensable pour que vos images (logo) et documents s'affichent
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

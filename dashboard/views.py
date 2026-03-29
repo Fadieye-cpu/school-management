@@ -11,12 +11,10 @@ from django.contrib.auth.decorators import user_passes_test
 
 @login_required
 def student_home(request):
-    # Logique spécifique (ex: récupérer les notes de l'étudiant)
     return render(request, 'dashboard/studenthome.html')
 
 @login_required
 def prof_home(request):
-    # Logique spécifique (ex: liste de ses cours)
     return render(request, 'dashboard/profhome.html')
 
 @user_passes_test(lambda u: u.is_staff or u.role == 'ADMIN')
@@ -31,13 +29,10 @@ def admin_dashboard(request):
 
 @login_required
 def student_dashboard(request):
-    # 1. Récupérer le profil étudiant lié à l'utilisateur connecté
     try:
         etudiant = Etudiant.objects.get(user=request.user)
-        # 2. Récupérer toutes les notes de cet étudiant
         notes = Note.objects.filter(etudiant=etudiant).select_related('cours')
         
-        # Calculer la moyenne générale simple pour le dashboard
         if notes.exists():
             moyenne = sum(n.note for n in notes) / notes.count()
         else:
@@ -71,7 +66,6 @@ def professeur_dashboard(request):
         prof = Professeur.objects.get(user=request.user)
         ses_cours = Cours.objects.filter(professeur=prof)
         
-        # Initialisation des formulaires
         form = NoteForm(professeur=prof)
         annonce_form = AnnonceForm(professeur=prof)
 
@@ -83,14 +77,12 @@ def professeur_dashboard(request):
                     form.save()
                     return redirect('dashboard:prof_home')
             
-            # Si on ajoute une ANNONCE
             elif 'submit_annonce' in request.POST:
                 annonce_form = AnnonceForm(request.POST, professeur=prof)
                 if annonce_form.is_valid():
                     annonce_form.save()
                     return redirect('dashboard:prof_home')
 
-        # On récupère aussi les annonces déjà postées (optionnel)
         mes_annonces = Annonce.objects.all().order_by('-date')[:5]
 
         return render(request, 'dashboard/profhome.html', {
