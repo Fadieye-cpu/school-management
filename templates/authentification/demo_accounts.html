@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-lg border-0">
+                <!-- En-tête -->
+                <div class="card-header bg-dark text-white text-center py-4">
+                    <h2 class="mb-0"> Guide d'Accès Démonstration</h2>
+                    <p class="mb-0 mt-2 opacity-75">Maintenance Scolaire - École Polytechnique de Thiès</p>
+                </div>
+
+                <div class="card-body p-4 p-md-5">
+                    <div class="mb-4 text-center">
+                        <p class="lead text-muted">
+                            Monsieur, ce guide répertorie les comptes de test créés pour explorer les fonctionnalités de la plateforme.
+                        </p>
+                    </div>
+
+                    <!-- Tableau des comptes -->
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle border">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="width: 20%">Rôle</th>
+                                    <th style="width: 25%">Identifiant (Username)</th>
+                                    <th style="width: 25%">Mot de passe</th>
+                                    <th>Permissions & Accès</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- ADMIN -->
+                                <tr>
+                                    <td><span class="badge badge-role badge-admin">Administrateur</span></td>
+                                    <td><code>administrateur</code></td>
+                                    <td><code>admin_ept</code></td>
+                                    <td><small>Gestion des utilisateurs, des classes et accès au back-office Django.</small></td>
+                                </tr>
+                                <!-- PROFESSEUR -->
+                                <tr>
+                                    <td><span >Professeur</span></td>
+                                    <td><code>abdoulaye</code></td>
+                                    <td><code>mysecret5</code></td>
+                                    <td><small>Saisie des notes et publication d'une annonce.</small></td>
+                                </tr>
+                                <tr>
+                                    <td><span >Professeur</span></td>
+                                    <td><code>michel</code></td>
+                                    <td><code>mysecret4</code></td>
+                                    <td><small>Saisie des notes et publication d'une annonce.</small></td>
+                                </tr>
+                                <tr>
+                                    <td><span >Professeur</span></td>
+                                    <td><code>mamadou</code></td>
+                                    <td><code>mysecret6</code></td>
+                                    <td><small>Saisie des notes et publication d'une annonce.</small></td>
+                                </tr>
+                                <tr>
+                                    <td><span >Professeur</span></td>
+                                    <td><code>mouhammadou</code></td>
+                                    <td><code>mysecret9</code></td>
+                                    <td><small>Saisie des notes et publication d'une annonce.</small></td>
+                                </tr>
+                                <tr>
+                                    <td><span >Professeur</span></td>
+                                    <td><code>bop</code></td>
+                                    <td><code>mysecret11</code></td>
+                                    <td><small>Saisie des notes et publication d'une annonce.</small></td>
+                                </tr>
+                                <!-- ÉTUDIANT -->
+                                <tr>
+                                    <td><span >Étudiant</span></td>
+                                    <td><code>aichatou</code></td>
+                                    <td><code>mysecret1</code></td>
+                                    <td><small>Consultation du relevé de notes et des annonces.</small></td>
+                                </tr>
+                                <tr>
+                                    <td><span >Étudiant</span></td>
+                                    <td><code>Siny</code></td>
+                                    <td><code>mysecret2</code></td>
+                                    <td><small>Consultation du relevé de notes et des annonces.</small></td>
+                                </tr>
+                                <tr>
+                                    <td><span >Étudiant</span></td>
+                                    <td><code>fary</code></td>
+                                    <td><code>mysecret7</code></td>
+                                    <td><small>Consultation du relevé de notes et des annonces.</small></td>
+                                </tr>
+                                <tr>
+                                    <td><span >Étudiant</span></td>
+                                    <td><code>seynabou</code></td>
+                                    <td><code>mysecret8</code></td>
+                                    <td><small>Consultation du relevé de notes et des annonces.</small></td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Note sur la sécurité -->
+                    <div class="alert alert-custom mt-4 shadow-sm">
+                        <div class="d-flex">
+                            <div class="me-3">
+                                <i class="bi bi-info-circle-fill fs-3 text-info"></i>
+                            </div>
+                            <div>
+                                <h5 class="alert-heading">Note importante sur la logique de l'application</h5>
+                                <p class="mb-0 small">
+                                    Conformément aux exigences de sécurité d'un établissement scolaire, l'auto-inscription est désactivée. 
+                                    Tous les comptes sont créés et validés par le service scolarité (Administrateur). Vous pouvez utiliser les identifiants fournis pour vous connecter.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bouton Retour -->
+                    <div class="text-center mt-5">
+                        <a href="{% url 'login1' %}" class="btn btn-ept btn-lg px-5 shadow">
+                            Aller à la page de connexion
+                        </a>
+                        <br>
+                        <a href="{% url 'home' %}" class="btn btn-link mt-2 text-decoration-none">Retour à l'accueil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

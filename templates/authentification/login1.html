@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Connexion - EPT{% endblock %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        <label for="id_username" class="form-label fw-semibold text-secondary small text-uppercase">Nom d'utilisateur</label>
+        <div class="input-group">
+            <span class="input-group-text bg-light border-end-0"><i class="bi bi-person"></i></span>
+            <input type="text" name="username" id="id_username" class="form-control bg-light border-start-0"  required>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label for="id_email" class="form-label fw-semibold text-secondary small text-uppercase">Adresse Email</label>
+        <div class="input-group">
+            <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope"></i></span>
+            <input type="email" name="email" id="id_email" class="form-control bg-light border-start-0"  required>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow-sm mb-3">
+        Suivant
+    </button>
+</form>
+
+{% endblock %}

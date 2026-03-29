@@ -1,0 +1,53 @@
+<div class="container mt-4">
+    <h2>Tableau de Bord Administrateur</h2>
+    <hr>
+    
+    <div class="row">
+        <!-- Carte Étudiants -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Étudiants ({{ nb_etudiants }})</h5>
+                    <div class="d-grid gap-2">
+                        <a href="/admin/school/etudiant/" class="btn btn-outline-primary btn-sm">Voir la liste</a>
+                        <a href="/admin/school/etudiant/add/" class="btn btn-primary btn-sm">+ Ajouter un étudiant</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carte Professeurs -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Professeurs ({{ nb_professeurs }})</h5>
+                    <div class="d-grid gap-2">
+                        <a href="/admin/school/professeur/" class="btn btn-outline-success btn-sm">Gérer les profs</a>
+                        <a href="/admin/school/professeur/add/" class="btn btn-success btn-sm">+ Nouveau professeur</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carte Classes & Cours -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Classes & Cours</h5>
+                    <div class="d-grid gap-2">
+                        <a href="/admin/school/classe/" class="btn btn-outline-info btn-sm">Liste des Classes</a>
+                        <a href="/admin/school/cours/" class="btn btn-outline-dark btn-sm">Liste des Cours</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Annonces -->
+    <div class="mt-4 p-4 bg-light border rounded">
+        <h4>Gestion du Système</h4>
+        <p>Utilisez ces liens pour les configurations globales :</p>
+        <a href="/admin/school/annonce/" class="btn btn-warning">Gérer toutes les annonces</a>
+        <a href="/admin/auth/user/" class="btn btn-secondary">Gérer les comptes utilisateurs</a>
+    </div>
+</div>

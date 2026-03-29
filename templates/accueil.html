@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="row align-items-center py-5">
+    <div class="col-lg-6">
+        <h1 class="display-4 fw-bold text-dark mb-4">Maintenance Scolaire EPT</h1>
+        <p class="lead text-muted mb-4">
+            Bienvenue sur la plateforme de gestion et de maintenance de l'École Polytechnique de Thiès. 
+            Accédez à vos cours, vos notes et gérez la structure académique en quelques clics.
+        </p>
+        <div class="d-grid gap-3 d-md-flex justify-content-md-start">
+            <a href="{% url 'login1' %}" class="btn btn-primary btn-lg px-5 shadow">Se connecter</a>
+            <a href="{% url 'demo_accounts' %}" class="btn btn-outline-dark btn-lg px-5">Accès Démo / Infos</a>
+        </div>
+    </div>
+    <div class="col-lg-6 text-center d-none d-lg-block">
+        <img src="{% static 'images/logo.png' %}" alt="Logo EPT Large" class="img-fluid" style="max-height: 300px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));">
+    </div>
+</div>
+
+<div class="row g-4 mt-5">
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <i class="bi bi-mortarboard fs-1 text-primary mb-3"></i>
+            <h5 class="fw-bold">Espace Étudiant</h5>
+            <p class="small text-muted">Consultez vos notes, vos cours et votre emploi du temps en temps réel.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <i class="bi bi-person-workspace fs-1 text-success mb-3"></i>
+            <h5 class="fw-bold">Espace Professeur</h5>
+            <p class="small text-muted">Gérez vos classes, déposez des supports de cours et saisissez les notes.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <i class="bi bi-shield-lock fs-1 text-danger mb-3"></i>
+            <h5 class="fw-bold">Administration</h5>
+            <p class="small text-muted">Contrôlez la structure des départements et gérez les comptes utilisateurs.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
